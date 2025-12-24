@@ -2,824 +2,1310 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Pembelajaran Interaktif</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #129eea;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Pembelajaran Interaktif</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #129eea;
+    }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: left;
-            background: linear-gradient(90deg, #26acd9, #7cf0ff);
-            padding: 10px 20px;
-            color: rgb(255, 255, 255);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            flex-wrap: wrap;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      background: linear-gradient(90deg, #26acd9, #7cf0ff);
+      padding: 10px 20px;
+      color: rgb(255, 255, 255);
+      position: fixed;
+      width: 100%;
+      z-index: 100;
+      flex-wrap: wrap;
+    }
 
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
 
-        header .logo img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
+    header .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
 
-        header .logo h1 {
-            font-size: 20px;
-            margin: 0;
-        }
+    header .logo h1 {
+      font-size: 20px;
+      margin: 0;
+    }
 
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-        nav .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+    nav .dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-        .dropbtn {
-            background: transparent;
-            border: none;
-            color: rgb(248, 249, 242);
-            font-size: 16px;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .dropbtn {
+      background: transparent;
+      border: none;
+      color: rgb(248, 249, 242);
+      font-size: 16px;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        .dropbtn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-        }
+    .dropbtn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: #66BB6A;
-            min-width: 150px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            border-radius: 5px;
-        }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #66BB6A;
+      min-width: 150px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      border-radius: 5px;
+    }
 
-        .dropdown-content a {
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-        }
+    .dropdown-content a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+    }
 
-        .dropdown-content a:hover {
-            background: #4CAF50;
-        }
+    .dropdown-content a:hover {
+      background: #4CAF50;
+    }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-        .content {
-            display: none;
-            padding: 120px 20px 20px 20px;
-            min-height: 100vh;
-            background: #f4f4f4;
-            transition: opacity 0.3s;
-        }
+    .content {
+      display: none;
+      padding: 120px 20px 20px 20px;
+      min-height: 100vh;
+      background: #f4f4f4;
+      transition: opacity 0.3s;
+    }
 
-        .content.active {
-            display: block;
-        }
+    .content.active {
+      display: block;
+    }
 
-        h2 {
-            text-align: center;
-            margin-top: 0;
-        }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
 
-        p {
-            max-width: 800px;
-            margin: 10px auto;
-            line-height: 1.6;
-            font-size: 16px;
-        }
+    p {
+      max-width: 800px;
+      margin: 10px auto;
+      line-height: 1.6;
+      font-size: 16px;
+    }
 
-        @media(max-width:768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+    @media(max-width:768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-            nav {
-                width: 100%;
-            }
+      nav {
+        width: 100%;
+      }
 
-            .dropdown-content {
-                position: relative;
-            }
-        }
-    </style>
+      .dropdown-content {
+        position: relative;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="data:image/jpeg;base64,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" alt="Logo">
-            <h1>Media Pembelajaran Interaktif — Kelas 4</h1>
-        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <nav>
-            <div class="dropdown">
-                <button class="dropbtn" onclick="showContent('beranda')">Beranda</button>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Materi &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="showContent('materiBilangan'); return false;">Bilangan</a>
-                    <a href="#" onclick="showContent('materiGeometri'); return false;">Geometri</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">Evaluasi &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="showContent('evaluasiBilangan'); return false;">Bilangan</a>
-                    <a href="#" onclick="showContent('evaluasiGeometri'); return false;">Geometri</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">LKPD &#9662;</button>
-                <div class="dropdown-content">
-                    <a href="#" onclick="showContent('lkpdBilangan'); return false;">Bilangan</a>
-                    <a href="#" onclick="showContent('lkpdGeometri'); return false;">Geometri</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+  <header>
 
-    <!-- BERANDA -->
-    <div id="beranda" class="content active">
-  <h2 style="text-align:center;">Identitas Kelompok</h2>
-  <div style="display:flex; justify-content:center; flex-wrap:wrap; margin-top:20px; gap:20px;">
-    
-    <div
-      style="text-align:center; background:#fff; padding:15px; border-radius:10px; width:250px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
-      <img src="fto/WhatsApp Image 2025-11-11 at 02.59.46.jpeg"
-          style="width:120px; height:120px; border-radius:50%; border:3px solid #4CAF50;">
-      <h3>Herlina Asmiarti</h3>
-      <p>NIM: 230401140130</p>
-    </div>
+    <style>
+      /* ===== RESET ===== */
 
-    <div
-      style="text-align:center; background:#fff; padding:15px; border-radius:10px; width:250px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
-      <img src="fto/wawan_punya.jpeg"
-          style="width:120px; height:120px; border-radius:50%; border:3px solid #4CAF50;">
-      <h3>Gerarda Yasinta Kurnia</h3>
-      <p>NIM: 230401140135</p>
-    </div>
 
-    <div
-      style="text-align:center; background:#fff; padding:15px; border-radius:10px; width:250px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
-      <img src="fto/sayang_ejen.jpeg"
-          style="width:120px; height:120px; border-radius:50%; border:3px solid #4CAF50;">
-      <h3>Veronika Yuliani Linong Atawolo</h3>
-      <p>NIM: 230401140134</p>
-    </div>
-
-  </div>
-
-  <div style="text-align:center; margin-top:30px;">
-    <p>Dengarkan musik sambil belajar 🎵</p>
-    <audio controls autoplay loop style="width:300px;">
-      <source src="videoplayback (1).m4a" type="audio/mpeg">
-    </audio>
-  </div>
-</div>
-
-
-    <!-- MATERI -->
-    <div id="materiBilangan" class="content">
-        <h2 style="text-align:center;">Materi Bilangan</h2>
-
-        <div id="materiImageContainer" style="text-align:center; margin-top:30px;">
-            <img id="materiImage" src="" alt="Materi Bilangan"
-                style="max-width:50%; height:auto; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.2);">
-        </div>
-
-        <div style="text-align:center; margin-top:20px;">
-            <button onclick="prevImage()"
-                style="padding:10px 20px; margin-right:20px; border:none; border-radius:5px; background:#3498db; color:white; cursor:pointer;">Kembali</button>
-            <button onclick="nextImage()"
-                style="padding:10px 20px; border:none; border-radius:5px; background:#1abc9c; color:white; cursor:pointer;">Berikut</button>
-        </div>
-    </div>
-
-    <script>
-        // Array gambar materi Bilangan
-        const materiBilanganImages = [
-            "bilangan/page-1.jpeg",
-            "bilangan/page-2.jpeg",
-            "bilangan/page-3.jpeg",
-            "bilangan/page-4.jpeg",
-            "bilangan/page-5.jpeg",
-            "bilangan/page-6.jpeg",
-            "bilangan/page-7.jpeg",
-            "bilangan/page-8.jpeg",
-            "bilangan/page-9.jpeg",
-            "bilangan/page-10.jpeg"
-        ];
-
-        let currentImageIndex = 0;
-
-        // Tampilkan gambar pertama saat load
-        const materiImage = document.getElementById("materiImage");
-        materiImage.src = materiBilanganImages[currentImageIndex];
-
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % materiBilanganImages.length;
-            materiImage.src = materiBilanganImages[currentImageIndex];
-        }
-
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + materiBilanganImages.length) % materiBilanganImages.length;
-            materiImage.src = materiBilanganImages[currentImageIndex];
-        }
-    </script>
-
-    <div id="materiGeometri" class="content">
-        <h2 style="text-align:center;">Materi Geometri</h2>
-
-        <div id="geometriImageContainer" style="text-align:center; margin-top:30px;">
-            <img id="geometriImage" src="" alt="Materi Geometri"
-                style="max-width:80%; height:auto; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.2);">
-        </div>
-
-        <div style="text-align:center; margin-top:20px;">
-            <button onclick="prevGeometriImage()"
-                style="padding:10px 20px; margin-right:20px; border:none; border-radius:5px; background:#3498db; color:white; cursor:pointer;">Kembali</button>
-            <button onclick="nextGeometriImage()"
-                style="padding:10px 20px; border:none; border-radius:5px; background:#1abc9c; color:white; cursor:pointer;">Berikut</button>
-        </div>
-    </div>
-
-    <script>
-        // Array gambar materi Geometri
-        const materiGeometriImages = [
-            "geometri/1.jpg",
-            "geometri/2.jpg",
-            "geometri/3.jpg",
-            "geometri/4.jpg",
-            "geometri/5.jpg",
-            "geometri/6.jpg",
-            "geometri/7.jpg",
-            "geometri/8.jpg",
-            "geometri/9.jpg",
-            "geometri/10.jpg",
-            "geometri/11.jpg",
-            "geometri/12.jpg",
-            "geometri/13.jpg",
-            "geometri/14.jpg"
-
-        ];
-
-        let currentGeometriIndex = 0;
-
-        // Tampilkan gambar pertama saat load
-        const geometriImage = document.getElementById("geometriImage");
-        geometriImage.src = materiGeometriImages[currentGeometriIndex];
-
-        function nextGeometriImage() {
-            currentGeometriIndex = (currentGeometriIndex + 1) % materiGeometriImages.length;
-            geometriImage.src = materiGeometriImages[currentGeometriIndex];
-        }
-
-        function prevGeometriImage() {
-            currentGeometriIndex = (currentGeometriIndex - 1 + materiGeometriImages.length) % materiGeometriImages.length;
-            geometriImage.src = materiGeometriImages[currentGeometriIndex];
-        }
-    </script>
-
-
-    <!-- evaluasi -->
-<div id="evaluasiBilangan" class="content evaluasi-bilangan">
-  <h2 style="text-align:center;">SOAL EVALUASI BILANGAN</h2>
-
-  <div class="card">
-    <p><b>Petunjuk Pengerjaan:</b></p>
-    <ul>
-      <li>Tulis nama dan kelas pada lembar jawaban.</li>
-      <li>Bacalah soal dengan teliti sebelum menjawab.</li>
-      <li>Pilih atau isi jawaban yang benar.</li>
-      <li>Kerjakan dengan jujur dan teliti.</li>
-    </ul>
-
-    <form id="evaluasiForm">
-      <label for="siswaNama">Nama Lengkap:</label>
-      <input type="text" id="siswaNama" placeholder="Masukkan nama lengkap" required>
-
-      <ol style="margin-top:15px; line-height:1.8;">
-        <li>
-          Hitung hasil penjumlahan 45.678 + 23.145 = 
-          <input type="number" name="q1" required>
-        </li>
-
-        <li>
-          Jika sebuah toko memiliki 75.000 buah pensil dan terjual 34.275 buah, 
-          berapa sisa pensil yang masih ada?<br>
-          <input type="number" name="q2" required>
-        </li>
-
-        <li>
-          Hitunglah hasil pengurangan dari 50.000 – 27.365 =<br>
-          <label><input type="radio" name="q3" value="22635" required> a. 22.635</label><br>
-          <label><input type="radio" name="q3" value="23635"> b. 23.635</label><br>
-          <label><input type="radio" name="q3" value="22645"> c. 22.645</label><br>
-          <label><input type="radio" name="q3" value="21645"> d. 21.645</label>
-        </li>
-
-        <li>
-          Jika Ani mempunyai 14.250 kelereng dan Budi memberinya lagi 12.730 kelereng, 
-          maka jumlah kelereng Ani sekarang adalah …<br>
-          <label><input type="radio" name="q4" value="26970" required> a. 26.970</label><br>
-          <label><input type="radio" name="q4" value="27080"> b. 27.080</label><br>
-          <label><input type="radio" name="q4" value="25980"> c. 25.980</label><br>
-          <label><input type="radio" name="q4" value="26980"> d. 26.980</label>
-        </li>
-
-        <li>
-          Hasil dari 34.215 + 12.375 – 6.590 adalah = 
-          <input type="number" name="q5" required>
-        </li>
-
-        <li>
-          Ibu membeli 23.450 kg beras dan 12.320 kg gula untuk toko sembakonya. 
-          Berapakah jumlah seluruh barang yang dibeli Ibu?<br>
-          <label><input type="radio" name="q6" value="35670" required> a. 35.670</label><br>
-          <label><input type="radio" name="q6" value="34770"> b. 34.770</label><br>
-          <label><input type="radio" name="q6" value="36770"> c. 36.770</label><br>
-          <label><input type="radio" name="q6" value="35770"> d. 35.770</label>
-        </li>
-
-        <li>
-          Sebuah toko memiliki 50.000 butir telur. Setelah terjual 27.345 butir, 
-          berapa butir telur yang masih tersisa?<br>
-          <label><input type="radio" name="q7" value="22665" required> a. 22.665</label><br>
-          <label><input type="radio" name="q7" value="22655"> b. 22.655</label><br>
-          <label><input type="radio" name="q7" value="21655"> c. 21.655</label><br>
-          <label><input type="radio" name="q7" value="23655"> d. 23.655</label>
-        </li>
-
-        <li>
-          Sebuah toko mainan menjual 25.600 mobil-mobilan dan 13.400 boneka dalam satu bulan. 
-          Berapa jumlah mainan yang terjual seluruhnya?<br>
-          <label><input type="radio" name="q8" value="38000" required> a. 38.000</label><br>
-          <label><input type="radio" name="q8" value="39000"> b. 39.000</label><br>
-          <label><input type="radio" name="q8" value="37000"> c. 37.000</label><br>
-          <label><input type="radio" name="q8" value="40000"> d. 40.000</label>
-        </li>
-
-        <li>
-          Jumlah penduduk di Desa Suka Maju sebanyak 34.250 orang. 
-          Tahun berikutnya bertambah 12.430 orang. 
-          Jumlah penduduk Desa Suka Maju sekarang adalah 
-          <input type="number" name="q9" required> orang.
-        </li>
-
-        <li>
-          Sebuah pabrik menghasilkan 75.000 botol minuman dalam sebulan. 
-          Sebanyak 28.750 botol sudah terjual. 
-          Sisa botol yang belum terjual adalah 
-          <input type="number" name="q10" required> botol.
-        </li>
-      </ol>
-
-      <div class="btn-container">
-        <button type="submit" class="btn-primary">Kirim Jawaban</button>
-        <button type="button" id="resetBtn" class="btn-danger">Reset Soal</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- MODAL HASIL -->
-<div id="modalHasil" class="modal">
-  <div class="modal-content">
-    <h3>Hasil Evaluasi Bilangan</h3>
-    <div id="isiHasil"></div>
-    <button onclick="document.getElementById('modalHasil').style.display='none'" class="btn-primary">Tutup</button>
-  </div>
-</div>
-
-<script>
-  const correctAnswers = {
-    q1: 45678 + 23145,          // 68823
-    q2: 75000 - 34275,          // 40725
-    q3: "22635",
-    q4: "26980",
-    q5: 34215 + 12375 - 6590,   // 40000
-    q6: "35670",
-    q7: "22655",
-    q8: "39000",
-    q9: 34250 + 12430,          // 46680
-    q10: 75000 - 28750          // 46250
-  };
-
-  document.getElementById("evaluasiForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const nama = document.getElementById("siswaNama").value || "Siswa";
-    let score = 0;
-    let resultText = `<p><b>Nama:</b> ${nama}</p><ol>`;
-
-    for (let key in correctAnswers) {
-      const userAnswer = form[key]?.value.trim().toLowerCase() || "";
-      const correct = correctAnswers[key].toString().toLowerCase();
-      const isCorrect = userAnswer === correct;
-      if (isCorrect) score++;
-
-      resultText += `<li><b>${key.toUpperCase()}</b>: Jawaban Anda <b>${userAnswer}</b> - ` +
-        (isCorrect
-          ? '<span style="color:green">Benar</span>'
-          : `<span style="color:red">Salah</span>, Jawaban benar: <b>${correctAnswers[key]}</b>`) +
-        `</li>`;
-    }
-
-    const nilai = ((score / Object.keys(correctAnswers).length) * 100).toFixed(0);
-    resultText += `</ol><p><b>Nilai:</b> ${score}/${Object.keys(correctAnswers).length} (${nilai})</p>`;
-    document.getElementById('isiHasil').innerHTML = resultText;
-    document.getElementById('modalHasil').style.display = 'flex';
-  });
-
-  document.getElementById("resetBtn").addEventListener("click", function() {
-    document.getElementById("evaluasiForm").reset();
-  });
-</script>
-
-
-
-
-
-<!-- ====================================================================================================== -->
-<div id="evaluasiGeometri" class="content evaluasi-bilangan">
-  <h2 style="text-align:center;">SOAL EVALUASI GEOMETRI</h2>
-
-  <div class="card">
-    <p><b>Petunjuk Pengerjaan:</b></p>
-    <ul>
-      <li>Tulis nama dan kelas pada lembar jawaban.</li>
-      <li>Bacalah soal dengan teliti sebelum menjawab.</li>
-      <li>Isilah semua soal dengan jawaban yang benar.</li>
-      <li>Kerjakan dengan jujur dan teliti.</li>
-    </ul>
-
-    <form id="evaluasiFormGeo" style="margin-top:20px;">
-      <label for="siswaNamaGeo">Nama Lengkap:</label>
-      <input type="text" id="siswaNamaGeo" placeholder="Masukkan nama lengkap" required>
-
-      <ol style="margin-top:15px; line-height:1.8;">
-        <li>
-          Sebuah hiasan dinding berbentuk belah ketupat memiliki diagonal 1 sepanjang 16 cm dan diagonal 2 sepanjang 10 cm. 
-          Hitunglah luas hiasan tersebut! <br>
-          <input type="number" name="q1" required placeholder="Jawaban (cm²)">
-        </li>
-
-        <li>
-          Sebuah taman kecil berbentuk belah ketupat memiliki sisi 14 m. Hitunglah keliling taman itu! <br>
-          <input type="number" name="q2" required placeholder="Jawaban (m)">
-        </li>
-
-        <li>
-          Ibu membuat taplak meja berbentuk belah ketupat dengan diagonal 1 = 24 cm dan diagonal 2 = 12 cm. 
-          Berapa luas taplak meja tersebut? <br>
-          <input type="number" name="q3" required placeholder="Jawaban (cm²)">
-        </li>
-
-        <li>
-          Sebuah layang-layang memiliki bagian utama berbentuk belah ketupat dengan panjang sisi 18 cm. 
-          Berapa keliling layang-layang itu? <br>
-          <input type="number" name="q4" required placeholder="Jawaban (cm)">
-        </li>
-
-        <li>
-          Guru membuat pola lantai kelas berbentuk belah ketupat untuk permainan. 
-          Jika diagonal-diagonalnya 20 cm dan 14 cm, hitunglah luas pola lantai tersebut! <br>
-          <input type="number" name="q5" required placeholder="Jawaban (cm²)">
-        </li>
-
-        <li>
-          Tas kecil berbentuk belah ketupat memiliki diagonal 1 = 10 cm dan diagonal 2 = 8 cm. 
-          Luas tas tersebut adalah …<br>
-          <label><input type="radio" name="q6" value="20"> a. 20 cm²</label><br>
-          <label><input type="radio" name="q6" value="30"> b. 30 cm²</label><br>
-          <label><input type="radio" name="q6" value="40"> c. 40 cm²</label><br>
-          <label><input type="radio" name="q6" value="50"> d. 50 cm²</label>
-        </li>
-
-        <li>
-          Sebuah gantungan kunci berbentuk belah ketupat memiliki sisi 9 cm. 
-          Keliling gantungan kunci adalah …<br>
-          <label><input type="radio" name="q7" value="18"> a. 18 cm</label><br>
-          <label><input type="radio" name="q7" value="27"> b. 27 cm</label><br>
-          <label><input type="radio" name="q7" value="36"> c. 36 cm</label><br>
-          <label><input type="radio" name="q7" value="45"> d. 45 cm</label>
-        </li>
-
-        <li>
-          Pola mozaik di lantai berbentuk belah ketupat memiliki diagonal 1 = 12 cm dan diagonal 2 = 6 cm. 
-          Luas pola mozaik itu adalah …<br>
-          <label><input type="radio" name="q8" value="24"> a. 24 cm²</label><br>
-          <label><input type="radio" name="q8" value="30"> b. 30 cm²</label><br>
-          <label><input type="radio" name="q8" value="36"> c. 36 cm²</label><br>
-          <label><input type="radio" name="q8" value="48"> d. 48 cm²</label>
-        </li>
-
-        <li>
-          Sebuah bentuk hiasan kertas memiliki sisi 11 cm. 
-          Keliling hiasan tersebut adalah …<br>
-          <label><input type="radio" name="q9" value="33"> a. 33 cm</label><br>
-          <label><input type="radio" name="q9" value="44"> b. 44 cm</label><br>
-          <label><input type="radio" name="q9" value="55"> c. 55 cm</label><br>
-          <label><input type="radio" name="q9" value="66"> d. 66 cm</label>
-        </li>
-
-        <li>
-          Layang-layang kecil memiliki diagonal 1 = 18 cm dan diagonal 2 = 10 cm. 
-          Luas layang-layang itu adalah …<br>
-          <label><input type="radio" name="q10" value="45"> a. 45 cm²</label><br>
-          <label><input type="radio" name="q10" value="60"> b. 60 cm²</label><br>
-          <label><input type="radio" name="q10" value="75"> c. 75 cm²</label><br>
-          <label><input type="radio" name="q10" value="90"> d. 90 cm²</label>
-        </li>
-      </ol>
-
-      <div class="btn-container">
-        <button type="submit" class="btn-primary">Kirim Jawaban</button>
-        <button type="button" id="resetBtnGeo" class="btn-danger">Reset Soal</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- MODAL HASIL -->
-<div id="modalHasilGeo" class="modal">
-  <div class="modal-content">
-    <h3>Hasil Evaluasi Geometri</h3>
-    <div id="isiHasilGeo"></div>
-    <button onclick="document.getElementById('modalHasilGeo').style.display='none'" class="btn-primary">Tutup</button>
-  </div>
-</div>
-
-<style>
-  .evaluasi-bilangan {
-    font-family: Arial, sans-serif;
-    background: #f5f8fc;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  .evaluasi-bilangan .card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    padding: 20px;
-    max-width: 750px;
-    margin: 0 auto;
-  }
-  input[type="text"], input[type="number"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  .btn-container {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .btn-primary, .btn-danger {
-    flex: 1;
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  .btn-primary { background: #1abc9c; }
-  .btn-danger { background: #e74c3c; }
-  .btn-primary:hover { background: #17a589; }
-  .btn-danger:hover { background: #c0392b; }
-
-  /* Modal Style */
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center; align-items: center;
-  }
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 85%;
-    max-width: 700px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.3);
-    max-height: 80%;
-    overflow-y: auto;
-  }
-</style>
-
-<script>
-  const correctAnswersGeo = {
-    q1: 0.5 * 16 * 10, // 80 cm²
-    q2: 4 * 14, // 56 m
-    q3: 0.5 * 24 * 12, // 144 cm²
-    q4: 4 * 18, // 72 cm
-    q5: 0.5 * 20 * 14, // 140 cm²
-    q6: "40",
-    q7: "36",
-    q8: "36",
-    q9: "44",
-    q10: "90"
-  };
-
-  document.getElementById("evaluasiFormGeo").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const form = e.target;
-    const nama = document.getElementById("siswaNamaGeo").value || "Siswa";
-    let score = 0;
-    let resultText = `<p><b>Nama:</b> ${nama}</p><ol>`;
-
-    for (let key in correctAnswersGeo) {
-      const input = form[key];
-      let userAnswer = "";
-
-      if (!input) continue;
-      if (input.type === "radio") {
-        const selected = form.querySelector(`input[name="${key}"]:checked`);
-        if (selected) userAnswer = selected.value.trim();
-      } else {
-        userAnswer = input.value.trim();
+      /* ===== LOGOe AREA ===== */
+      .logoe {
+        text-align: center;
+        margin-top: 0px;
+        cursor: pointer;
       }
 
-      const correct = correctAnswersGeo[key].toString();
-      const isCorrect = userAnswer === correct;
+      .logoe img {
+        width: 50px;
+        transition: 0.3s;
+      }
 
-      if (isCorrect) score++;
+      .logoe img:hover {
+        transform: scale(1.05);
+      }
 
-      resultText += `<li><b>${key.toUpperCase()}</b>: Jawaban Anda <b>${userAnswer || "-"}</b> - ` +
-        (isCorrect
-          ? '<span style="color:green">Benar</span>'
-          : `<span style="color:red">Salah</span>, Jawaban benar: <b>${correct}</b>`) +
-        `</li>`;
+      .logoe h1 {
+        font-size: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      /* ===== MODAL (POPUP GAMBAR) ===== */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+      }
+
+      .modal-content {
+        display: block;
+        margin: 5% auto;
+        max-width: 80%;
+        border-radius: 5px;
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 36px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+
+
+    <!-- ===== LOGOe ===== -->
+    <div class="logoe">
+      <img src="fto/de.png" alt="Logoe Pembelajaran" id="logoeImg">
+    </div>
+
+    <!-- ===== MODAL GAMBAR BESAR ===== -->
+    <div id="imgModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="imgBesar">
+    </div>
+
+    <script>
+      const logoe = document.getElementById("logoeImg");
+      const modal = document.getElementById("imgModal");
+      const imgBesar = document.getElementById("imgBesar");
+      const closeBtn = document.querySelector(".close");
+
+      // Klik logoe → gambar besar
+      logoe.onclick = function () {
+        modal.style.display = "block";
+        imgBesar.src = this.src;
+      }
+
+      // Klik X → tutup
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      }
+
+      // Klik area gelap → tutup
+      modal.onclick = function (e) {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn" onclick="showContent('beranda')">Beranda</button>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Materi &#9662;</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="showContent('materiBilangan'); return false;">Bilangan</a>
+          <a href="#" onclick="showContent('materiGeometri'); return false;">Geometri</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">Evaluasi &#9662;</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="showContent('evaluasiBilangan'); return false;">Bilangan</a>
+          <a href="#" onclick="showContent('evaluasiGeometri'); return false;">Geometri</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">LKPD &#9662;</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="showContent('lkpdBilangan'); return false;">Bilangan</a>
+          <a href="#" onclick="showContent('lkpdGeometri'); return false;">Geometri</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- BERANDA -->
+  <div id="beranda" class="content active">
+    <h2 style="text-align:center;">Identitas Kelompok</h2>
+    <div style="display:flex; justify-content:center; flex-wrap:wrap; margin-top:20px; gap:20px;">
+
+      <div
+        style="text-align:center; background:#fff; padding:15px; border-radius:10px; width:250px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+        <img src="fto/WhatsApp Image 2025-11-11 at 02.59.46.jpeg"
+          style="width:120px; height:120px; border-radius:50%; border:3px solid #4CAF50;">
+        <h3>Herlina Asmiarti</h3>
+        <p>NIM: 230401140130</p>
+      </div>
+
+      <div
+        style="text-align:center; background:#fff; padding:15px; border-radius:10px; width:250px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+        <img src="fto/wawan_punya.jpeg" style="width:120px; height:120px; border-radius:50%; border:3px solid #4CAF50;">
+        <h3>Gerarda Yasinta Kurnia</h3>
+        <p>NIM: 230401140135</p>
+      </div>
+
+      <div
+        style="text-align:center; background:#fff; padding:15px; border-radius:10px; width:250px; box-shadow:0 3px 10px rgba(0,0,0,0.1);">
+        <img src="fto/sayang_ejen.jpeg" style="width:120px; height:120px; border-radius:50%; border:3px solid #4CAF50;">
+        <h3>Veronika Yuliani Linong Atawolo</h3>
+        <p>NIM: 230401140134</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <p>Dengarkan musik sambil belajar 🎵</p>
+      <audio controls autoplay loop style="width:300px;">
+        <source src="videoplayback (1).m4a" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+
+  <!-- MATERI -->
+  <div id="materiBilangan" class="content">
+    <h2 style="text-align:center;">Materi Bilangan</h2>
+
+    <div id="materiImageContainer" style="text-align:center; margin-top:30px;">
+      <img id="materiImage" src="" alt="Materi Bilangan"
+        style="max-width:50%; height:auto; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.2);">
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="prevImage()"
+        style="padding:10px 20px; margin-right:20px; border:none; border-radius:5px; background:#3498db; color:white; cursor:pointer;">Kembali</button>
+      <button onclick="nextImage()"
+        style="padding:10px 20px; border:none; border-radius:5px; background:#1abc9c; color:white; cursor:pointer;">Berikut</button>
+    </div>
+  </div>
+
+  <script>
+    // Array gambar materi Bilangan
+    const materiBilanganImages = [
+      "bilangan/page-1.jpeg",
+      "bilangan/page-2.jpeg",
+      "bilangan/page-3.jpeg",
+      "bilangan/page-4.jpeg",
+      "bilangan/page-5.jpeg",
+      "bilangan/page-6.jpeg",
+      "bilangan/page-7.jpeg",
+      "bilangan/page-8.jpeg",
+      "bilangan/page-9.jpeg",
+      "bilangan/page-10.jpeg"
+    ];
+
+    let currentImageIndex = 0;
+
+    // Tampilkan gambar pertama saat load
+    const materiImage = document.getElementById("materiImage");
+    materiImage.src = materiBilanganImages[currentImageIndex];
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % materiBilanganImages.length;
+      materiImage.src = materiBilanganImages[currentImageIndex];
     }
 
-    resultText += `</ol><p><b>Nilai:</b> ${score}/10</p>`;
-    document.getElementById('isiHasilGeo').innerHTML = resultText;
-    document.getElementById('modalHasilGeo').style.display = 'flex';
-  });
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + materiBilanganImages.length) % materiBilanganImages.length;
+      materiImage.src = materiBilanganImages[currentImageIndex];
+    }
+  </script>
 
-  document.getElementById("resetBtnGeo").addEventListener("click", function () {
-    document.getElementById("evaluasiFormGeo").reset();
-  });
-</script>
+  <div id="materiGeometri" class="content">
+    <h2 style="text-align:center;">Materi Geometri</h2>
 
-
-
-
-    <!-- LKPD -->
-    <!-- LKPD Bilangan -->
-    <div id="lkpdBilangan" class="content">
-        <h2 style="text-align:center;">LKPD Bilangan</h2>
-
-        <div style="text-align:center; margin-top:20px;">
-            <img id="lkpdBilanganImg" src="lkpd_bilangan/WhatsApp Image 2025-11-02 at 07.14.53.jpeg" alt="LKPD Bilangan"
-                style="max-width:100%; height:auto; border-radius:10px; display:block; margin:0 auto;">
-            <div style="margin-top:15px;">
-                <button onclick="prevLkpd('bilangan')"
-                    style="padding:10px 15px; border:none; border-radius:5px; background:#3498db; color:white; cursor:pointer;">Kembali</button>
-                <button onclick="nextLkpd('bilangan')"
-                    style="padding:10px 15px; border:none; border-radius:5px; background:#1abc9c; color:white; cursor:pointer;">Lanjut</button>
-            </div>
-        </div>
+    <div id="geometriImageContainer" style="text-align:center; margin-top:30px;">
+      <img id="geometriImage" src="" alt="Materi Geometri"
+        style="max-width:80%; height:auto; border-radius:10px; box-shadow:0 3px 10px rgba(0,0,0,0.2);">
     </div>
 
-    <!-- LKPD Geometri -->
-    <div id="lkpdGeometri" class="content">
-        <h2 style="text-align:center;">LKPD Geometri</h2>
-
-        <div style="text-align:center; margin-top:20px;">
-            <img id="lkpdGeometriImg" src="lkpd_geometri/WhatsApp Image 2025-11-02 at 07.14.54 (1).jpeg" alt="LKPD Geometri"
-                style="max-width:100%; height:auto; border-radius:10px; display:block; margin:0 auto;">
-            <div style="margin-top:15px;">
-                <button onclick="prevLkpd('geometri')"
-                    style="padding:10px 15px; border:none; border-radius:5px; background:#3498db; color:white; cursor:pointer;">Kembali</button>
-                <button onclick="nextLkpd('geometri')"
-                    style="padding:10px 15px; border:none; border-radius:5px; background:#1abc9c; color:white; cursor:pointer;">Lanjut</button>
-            </div>
-        </div>
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="prevGeometriImage()"
+        style="padding:10px 20px; margin-right:20px; border:none; border-radius:5px; background:#3498db; color:white; cursor:pointer;">Kembali</button>
+      <button onclick="nextGeometriImage()"
+        style="padding:10px 20px; border:none; border-radius:5px; background:#1abc9c; color:white; cursor:pointer;">Berikut</button>
     </div>
+  </div>
 
-    <script>
-        const lkpdImages = {
-            bilangan: [
-                'lkpd_bilangan/WhatsApp Image 2025-11-02 at 07.14.54 (1).jpeg',
-                'lkpd_bilangan/WhatsApp Image 2025-11-02 at 07.14.54 (2).jpeg'
-            ],
-            geometri: [
-                'lkpd_geometri/WhatsApp Image 2025-11-02 at 07.14.54 (2).jpeg',
-                'lkpd_geometri/WhatsApp Image 2025-11-02 at 07.14.54.jpeg'
-            ],
-        };
+  <script>
+    // Array gambar materi Geometri
+    const materiGeometriImages = [
+      "geometri/1.jpg",
+      "geometri/2.jpg",
+      "geometri/3.jpg",
+      "geometri/4.jpg",
+      "geometri/5.jpg",
+      "geometri/6.jpg",
+      "geometri/7.jpg",
+      "geometri/8.jpg",
+      "geometri/9.jpg",
+      "geometri/10.jpg",
+      "geometri/11.jpg",
+      "geometri/12.jpg",
+      "geometri/13.jpg",
+      "geometri/14.jpg"
 
-        let currentIndex = { bilangan: 0, geometri: 0 };
+    ];
 
-        function showLkpd(type) {
-            const img = document.getElementById('lkpd' + capitalize(type) + 'Img');
-            img.src = lkpdImages[type][currentIndex[type]];
-        }
+    let currentGeometriIndex = 0;
 
-        function nextLkpd(type) {
-            currentIndex[type] = (currentIndex[type] + 1) % lkpdImages[type].length;
-            showLkpd(type);
-        }
+    // Tampilkan gambar pertama saat load
+    const geometriImage = document.getElementById("geometriImage");
+    geometriImage.src = materiGeometriImages[currentGeometriIndex];
 
-        function prevLkpd(type) {
-            currentIndex[type] = (currentIndex[type] - 1 + lkpdImages[type].length) % lkpdImages[type].length;
-            showLkpd(type);
-        }
+    function nextGeometriImage() {
+      currentGeometriIndex = (currentGeometriIndex + 1) % materiGeometriImages.length;
+      geometriImage.src = materiGeometriImages[currentGeometriIndex];
+    }
 
-        function capitalize(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
-        }
-    </script>
+    function prevGeometriImage() {
+      currentGeometriIndex = (currentGeometriIndex - 1 + materiGeometriImages.length) % materiGeometriImages.length;
+      geometriImage.src = materiGeometriImages[currentGeometriIndex];
+    }
+  </script>
 
 
+  <!-- evaluasi -->
+  <div id="evaluasiBilangan" class="content evaluasi-bilangan">
+    <h2 style="text-align:center;">SOAL EVALUASI BILANGAN</h2>
 
-    <script>
-        function showContent(id) {
-            const contents = document.querySelectorAll('.content');
-            contents.forEach(c => c.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-        }
-    </script>
-    <footer class="small">
+    <div class="card">
+      <p><b>Petunjuk Pengerjaan:</b></p>
+      <ul>
+        <li>Tulis nama dan kelas pada lembar jawaban.</li>
+        <li>Bacalah soal dengan teliti sebelum menjawab.</li>
+        <li>Pilih atau isi jawaban yang benar.</li>
+        <li>Kerjakan dengan jujur dan teliti.</li>
+      </ul>
+
+      <form id="evaluasiForm">
+        <label for="siswaNama">Nama Lengkap:</label>
+        <input type="text" id="siswaNama" placeholder="Masukkan nama lengkap" required>
+
+        <ol style="margin-top:15px; line-height:1.8;">
+          <li>
+            Hitung hasil penjumlahan 45.678 + 23.145 =
+            <input type="number" name="q1" required>
+          </li>
+
+          <li>
+            Jika sebuah toko memiliki 75.000 buah pensil dan terjual 34.275 buah,
+            berapa sisa pensil yang masih ada?<br>
+            <input type="number" name="q2" required>
+          </li>
+
+          <li>
+            Hitunglah hasil pengurangan dari 50.000 – 27.365 =<br>
+            <label><input type="radio" name="q3" value="22635" required> a. 22.635</label><br>
+            <label><input type="radio" name="q3" value="23635"> b. 23.635</label><br>
+            <label><input type="radio" name="q3" value="22645"> c. 22.645</label><br>
+            <label><input type="radio" name="q3" value="21645"> d. 21.645</label>
+          </li>
+
+          <li>
+            Jika Ani mempunyai 14.250 kelereng dan Budi memberinya lagi 12.730 kelereng,
+            maka jumlah kelereng Ani sekarang adalah …<br>
+            <label><input type="radio" name="q4" value="26970" required> a. 26.970</label><br>
+            <label><input type="radio" name="q4" value="27080"> b. 27.080</label><br>
+            <label><input type="radio" name="q4" value="25980"> c. 25.980</label><br>
+            <label><input type="radio" name="q4" value="26980"> d. 26.980</label>
+          </li>
+
+          <li>
+            Hasil dari 34.215 + 12.375 – 6.590 adalah =
+            <input type="number" name="q5" required>
+          </li>
+
+          <li>
+            Ibu membeli 23.450 kg beras dan 12.320 kg gula untuk toko sembakonya.
+            Berapakah jumlah seluruh barang yang dibeli Ibu?<br>
+            <label><input type="radio" name="q6" value="35670" required> a. 35.670</label><br>
+            <label><input type="radio" name="q6" value="34770"> b. 34.770</label><br>
+            <label><input type="radio" name="q6" value="36770"> c. 36.770</label><br>
+            <label><input type="radio" name="q6" value="35770"> d. 35.770</label>
+          </li>
+
+          <li>
+            Sebuah toko memiliki 50.000 butir telur. Setelah terjual 27.345 butir,
+            berapa butir telur yang masih tersisa?<br>
+            <label><input type="radio" name="q7" value="22665" required> a. 22.665</label><br>
+            <label><input type="radio" name="q7" value="22655"> b. 22.655</label><br>
+            <label><input type="radio" name="q7" value="21655"> c. 21.655</label><br>
+            <label><input type="radio" name="q7" value="23655"> d. 23.655</label>
+          </li>
+
+          <li>
+            Sebuah toko mainan menjual 25.600 mobil-mobilan dan 13.400 boneka dalam satu bulan.
+            Berapa jumlah mainan yang terjual seluruhnya?<br>
+            <label><input type="radio" name="q8" value="38000" required> a. 38.000</label><br>
+            <label><input type="radio" name="q8" value="39000"> b. 39.000</label><br>
+            <label><input type="radio" name="q8" value="37000"> c. 37.000</label><br>
+            <label><input type="radio" name="q8" value="40000"> d. 40.000</label>
+          </li>
+
+          <li>
+            Jumlah penduduk di Desa Suka Maju sebanyak 34.250 orang.
+            Tahun berikutnya bertambah 12.430 orang.
+            Jumlah penduduk Desa Suka Maju sekarang adalah
+            <input type="number" name="q9" required> orang.
+          </li>
+
+          <li>
+            Sebuah pabrik menghasilkan 75.000 botol minuman dalam sebulan.
+            Sebanyak 28.750 botol sudah terjual.
+            Sisa botol yang belum terjual adalah
+            <input type="number" name="q10" required> botol.
+          </li>
+        </ol>
+
+        <div class="btn-container">
+          <button type="submit" class="btn-primary">Kirim Jawaban</button>
+          <button type="button" id="resetBtn" class="btn-danger">Reset Soal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL HASIL -->
+  <div id="modalHasil" class="modal">
+    <div class="modal-content">
+      <h3>Hasil Evaluasi Bilangan</h3>
+      <div id="isiHasil"></div>
+      <button onclick="document.getElementById('modalHasil').style.display='none'" class="btn-primary">Tutup</button>
+    </div>
+  </div>
+
+  <script>
+    const correctAnswers = {
+      q1: 45678 + 23145,          // 68823
+      q2: 75000 - 34275,          // 40725
+      q3: "22635",
+      q4: "26980",
+      q5: 34215 + 12375 - 6590,   // 40000
+      q6: "35670",
+      q7: "22655",
+      q8: "39000",
+      q9: 34250 + 12430,          // 46680
+      q10: 75000 - 28750          // 46250
+    };
+
+    document.getElementById("evaluasiForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const nama = document.getElementById("siswaNama").value || "Siswa";
+      let score = 0;
+      let resultText = `<p><b>Nama:</b> ${nama}</p><ol>`;
+
+      for (let key in correctAnswers) {
+        const userAnswer = form[key]?.value.trim().toLowerCase() || "";
+        const correct = correctAnswers[key].toString().toLowerCase();
+        const isCorrect = userAnswer === correct;
+        if (isCorrect) score++;
+
+        resultText += `<li><b>${key.toUpperCase()}</b>: Jawaban Anda <b>${userAnswer}</b> - ` +
+          (isCorrect
+            ? '<span style="color:green">Benar</span>'
+            : `<span style="color:red">Salah</span>, Jawaban benar: <b>${correctAnswers[key]}</b>`) +
+          `</li>`;
+      }
+
+      const nilai = ((score / Object.keys(correctAnswers).length) * 100).toFixed(0);
+      resultText += `</ol><p><b>Nilai:</b> ${score}/${Object.keys(correctAnswers).length} (${nilai})</p>`;
+      document.getElementById('isiHasil').innerHTML = resultText;
+      document.getElementById('modalHasil').style.display = 'flex';
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", function () {
+      document.getElementById("evaluasiForm").reset();
+    });
+  </script>
+
+
+
+
+
+  <!-- ====================================================================================================== -->
+  <div id="evaluasiGeometri" class="content evaluasi-bilangan">
+    <h2 style="text-align:center;">SOAL EVALUASI GEOMETRI</h2>
+
+    <div class="card">
+      <p><b>Petunjuk Pengerjaan:</b></p>
+      <ul>
+        <li>Tulis nama dan kelas pada lembar jawaban.</li>
+        <li>Bacalah soal dengan teliti sebelum menjawab.</li>
+        <li>Isilah semua soal dengan jawaban yang benar.</li>
+        <li>Kerjakan dengan jujur dan teliti.</li>
+      </ul>
+
+      <form id="evaluasiFormGeo" style="margin-top:20px;">
+        <label for="siswaNamaGeo">Nama Lengkap:</label>
+        <input type="text" id="siswaNamaGeo" placeholder="Masukkan nama lengkap" required>
+
+        <ol style="margin-top:15px; line-height:1.8;">
+          <li>
+            Sebuah hiasan dinding berbentuk belah ketupat memiliki diagonal 1 sepanjang 16 cm dan diagonal 2 sepanjang
+            10 cm.
+            Hitunglah luas hiasan tersebut! <br>
+            <input type="number" name="q1" required placeholder="Jawaban (cm²)">
+          </li>
+
+          <li>
+            Sebuah taman kecil berbentuk belah ketupat memiliki sisi 14 m. Hitunglah keliling taman itu! <br>
+            <input type="number" name="q2" required placeholder="Jawaban (m)">
+          </li>
+
+          <li>
+            Ibu membuat taplak meja berbentuk belah ketupat dengan diagonal 1 = 24 cm dan diagonal 2 = 12 cm.
+            Berapa luas taplak meja tersebut? <br>
+            <input type="number" name="q3" required placeholder="Jawaban (cm²)">
+          </li>
+
+          <li>
+            Sebuah layang-layang memiliki bagian utama berbentuk belah ketupat dengan panjang sisi 18 cm.
+            Berapa keliling layang-layang itu? <br>
+            <input type="number" name="q4" required placeholder="Jawaban (cm)">
+          </li>
+
+          <li>
+            Guru membuat pola lantai kelas berbentuk belah ketupat untuk permainan.
+            Jika diagonal-diagonalnya 20 cm dan 14 cm, hitunglah luas pola lantai tersebut! <br>
+            <input type="number" name="q5" required placeholder="Jawaban (cm²)">
+          </li>
+
+          <li>
+            Tas kecil berbentuk belah ketupat memiliki diagonal 1 = 10 cm dan diagonal 2 = 8 cm.
+            Luas tas tersebut adalah …<br>
+            <label><input type="radio" name="q6" value="20"> a. 20 cm²</label><br>
+            <label><input type="radio" name="q6" value="30"> b. 30 cm²</label><br>
+            <label><input type="radio" name="q6" value="40"> c. 40 cm²</label><br>
+            <label><input type="radio" name="q6" value="50"> d. 50 cm²</label>
+          </li>
+
+          <li>
+            Sebuah gantungan kunci berbentuk belah ketupat memiliki sisi 9 cm.
+            Keliling gantungan kunci adalah …<br>
+            <label><input type="radio" name="q7" value="18"> a. 18 cm</label><br>
+            <label><input type="radio" name="q7" value="27"> b. 27 cm</label><br>
+            <label><input type="radio" name="q7" value="36"> c. 36 cm</label><br>
+            <label><input type="radio" name="q7" value="45"> d. 45 cm</label>
+          </li>
+
+          <li>
+            Pola mozaik di lantai berbentuk belah ketupat memiliki diagonal 1 = 12 cm dan diagonal 2 = 6 cm.
+            Luas pola mozaik itu adalah …<br>
+            <label><input type="radio" name="q8" value="24"> a. 24 cm²</label><br>
+            <label><input type="radio" name="q8" value="30"> b. 30 cm²</label><br>
+            <label><input type="radio" name="q8" value="36"> c. 36 cm²</label><br>
+            <label><input type="radio" name="q8" value="48"> d. 48 cm²</label>
+          </li>
+
+          <li>
+            Sebuah bentuk hiasan kertas memiliki sisi 11 cm.
+            Keliling hiasan tersebut adalah …<br>
+            <label><input type="radio" name="q9" value="33"> a. 33 cm</label><br>
+            <label><input type="radio" name="q9" value="44"> b. 44 cm</label><br>
+            <label><input type="radio" name="q9" value="55"> c. 55 cm</label><br>
+            <label><input type="radio" name="q9" value="66"> d. 66 cm</label>
+          </li>
+
+          <li>
+            Layang-layang kecil memiliki diagonal 1 = 18 cm dan diagonal 2 = 10 cm.
+            Luas layang-layang itu adalah …<br>
+            <label><input type="radio" name="q10" value="45"> a. 45 cm²</label><br>
+            <label><input type="radio" name="q10" value="60"> b. 60 cm²</label><br>
+            <label><input type="radio" name="q10" value="75"> c. 75 cm²</label><br>
+            <label><input type="radio" name="q10" value="90"> d. 90 cm²</label>
+          </li>
+        </ol>
+
+        <div class="btn-container">
+          <button type="submit" class="btn-primary">Kirim Jawaban</button>
+          <button type="button" id="resetBtnGeo" class="btn-danger">Reset Soal</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL HASIL -->
+  <div id="modalHasilGeo" class="modal">
+    <div class="modal-content">
+      <h3>Hasil Evaluasi Geometri</h3>
+      <div id="isiHasilGeo"></div>
+      <button onclick="document.getElementById('modalHasilGeo').style.display='none'" class="btn-primary">Tutup</button>
+    </div>
+  </div>
+
   <style>
-    footer.small {
-      text-align: center;
-      background: #f0f4f8;
-      color: #333;
-      font-size: 14px;
-      padding: 20px 10px;
-      border-top: 2px solid #e0e6ed;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+    .evaluasi-bilangan {
+      font-family: Arial, sans-serif;
+      background: #f5f8fc;
+      padding: 20px;
+      border-radius: 10px;
     }
 
-    footer.small a {
-      display: inline-block;
-      margin-top: 8px;
-      background: #10b981;
-      color: #fff;
+    .evaluasi-bilangan .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      max-width: 400px;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-primary,
+    .btn-danger {
+      flex: 1;
       padding: 10px 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s ease;
-      box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
-    footer.small a:hover {
-      background: #0ea374;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
-      transform: translateY(-2px);
+    .btn-primary {
+      background: #1abc9c;
+    }
+
+    .btn-danger {
+      background: #e74c3c;
+    }
+
+    .btn-primary:hover {
+      background: #17a589;
+    }
+
+    .btn-danger:hover {
+      background: #c0392b;
+    }
+
+    /* Modal Style */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 85%;
+      max-width: 700px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+      max-height: 80%;
+      overflow-y: auto;
     }
   </style>
 
-  © 2025 Media Pembelajaran Interaktif — Kelas 4
-  <br>
-  <a href="https://wayground.com/join?gc=219083&source=liveDashboard" target="_blank">
-    🌐 Gabung ke WayGround
-  </a>
-</footer>
+  <script>
+    const correctAnswersGeo = {
+      q1: 0.5 * 16 * 10, // 80 cm²
+      q2: 4 * 14, // 56 m
+      q3: 0.5 * 24 * 12, // 144 cm²
+      q4: 4 * 18, // 72 cm
+      q5: 0.5 * 20 * 14, // 140 cm²
+      q6: "40",
+      q7: "36",
+      q8: "36",
+      q9: "44",
+      q10: "90"
+    };
+
+    document.getElementById("evaluasiFormGeo").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const nama = document.getElementById("siswaNamaGeo").value || "Siswa";
+      let score = 0;
+      let resultText = `<p><b>Nama:</b> ${nama}</p><ol>`;
+
+      for (let key in correctAnswersGeo) {
+        const input = form[key];
+        let userAnswer = "";
+
+        if (!input) continue;
+        if (input.type === "radio") {
+          const selected = form.querySelector(`input[name="${key}"]:checked`);
+          if (selected) userAnswer = selected.value.trim();
+        } else {
+          userAnswer = input.value.trim();
+        }
+
+        const correct = correctAnswersGeo[key].toString();
+        const isCorrect = userAnswer === correct;
+
+        if (isCorrect) score++;
+
+        resultText += `<li><b>${key.toUpperCase()}</b>: Jawaban Anda <b>${userAnswer || "-"}</b> - ` +
+          (isCorrect
+            ? '<span style="color:green">Benar</span>'
+            : `<span style="color:red">Salah</span>, Jawaban benar: <b>${correct}</b>`) +
+          `</li>`;
+      }
+
+      resultText += `</ol><p><b>Nilai:</b> ${score}/10</p>`;
+      document.getElementById('isiHasilGeo').innerHTML = resultText;
+      document.getElementById('modalHasilGeo').style.display = 'flex';
+    });
+
+    document.getElementById("resetBtnGeo").addEventListener("click", function () {
+      document.getElementById("evaluasiFormGeo").reset();
+    });
+  </script>
+
+
+
+
+  <!-- LKPD -->
+  <!-- LKPD Bilangan -->
+  <div id="lkpdBilangan" class="content">
+
+    <style>
+      /* ===== LATAR HALAMAN ===== */
+
+
+      /* ===== KERTAS A4 ===== */
+      #lkpdBilangan {
+        width: 210mm;
+        min-height: 297mm;
+        background: white;
+        margin: auto;
+        padding: 25mm;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ===== JUDUL ===== */
+      #lkpdBilangan h2 {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      #lkpdBilangan h3 {
+        margin-top: 25px;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
+      }
+
+      /* ===== TEKS ===== */
+      #lkpdBilangan p {
+        margin-top: 15px;
+        text-align: justify;
+      }
+
+      /* ===== TEXTAREA ===== */
+      #lkpdBilangan textarea {
+        width: 100%;
+        height: 55px;
+        border: 1px solid black;
+        padding: 6px;
+        font-family: "Times New Roman", serif;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      /* ===== TOMBOL ===== */
+      #lkpdBilangan button {
+        padding: 10px 30px;
+        font-size: 14px;
+        border: 1px solid black;
+        background: white;
+        cursor: pointer;
+      }
+
+      /* ===== HASIL ===== */
+      #hasil {
+        margin-top: 20px;
+      }
+
+      /* ===== MODE CETAK ===== */
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        #lkpdBilangan {
+          box-shadow: none;
+          margin: 0;
+        }
+      }
+    </style>
+    <h2>Lembar Kerja Peserta Didik (LKPD) Bilangan</h2>
+
+    <h3>D. Pengurangan Bersusun ke Bawah</h3>
+
+    <p>1.</p>
+    <pre>
+  3.421
+- 1.245
+────────
+</pre>
+    <textarea id="d1"></textarea>
+<p id="res_d1" style="color:red;font-weight:bold"></p>
+
+    <p>2.</p>
+    <pre>
+  2.878
+- 1.234
+────────
+</pre>
+    <textarea id="d2"></textarea>
+<p id="res_d2" style="color:red;font-weight:bold"></p>
+
+
+    <p>3.</p>
+    <pre>
+  2.775
+- 1.341
+────────
+</pre>
+    <textarea id="d3"></textarea>
+<p id="res_d3" style="color:red;font-weight:bold"></p>
+
+    <p>4.</p>
+    <pre>
+  38.754
+- 22.613
+────────
+</pre>
+   <textarea id="d4"></textarea>
+<p id="res_d4" style="color:red;font-weight:bold"></p>
+
+    <p>5.</p>
+    <pre>
+  28.933
+- 14.409
+────────
+</pre>
+    <textarea id="d5"></textarea>
+<p id="res_d5" style="color:red;font-weight:bold"></p>
+
+    <h3>E. Penjumlahan Bersusun ke Bawah</h3>
+
+    <p>1.</p>
+    <pre>
+  42.387
++ 36.129
+────────
+</pre>
+    <textarea id="e1"></textarea>
+<p id="res_e1" style="color:red;font-weight:bold"></p>
+
+    <p>2.</p>
+    <pre>
+  28.634
++ 17.245
+────────
+</pre>
+    <textarea id="e2"></textarea>
+<p id="res_e2" style="color:red;font-weight:bold"></p>
+
+    <p>3.</p>
+    <pre>
+  4.173
++ ______
+────────
+</pre>
+    <textarea id="e3"></textarea>
+<p id="res_e3" style="color:red;font-weight:bold"></p>
+    <p>4.</p>
+    <pre>
+  27.634
++ 15.247
+────────
+</pre>
+    <textarea id="e4"></textarea>
+<p id="res_e4" style="color:red;font-weight:bold"></p>
+    <p>5.</p>
+    <pre>
+  46.725
++ 32.458
+────────
+</pre>
+    <textarea id="e5"></textarea>
+<p id="res_e5" style="color:red;font-weight:bold"></p>
+
+    <h3>F. Soal Cerita Penjumlahan dan Pengurangan</h3>
+
+    <p>1. Perpustakaan memiliki 12.345 buku dan membeli 5.678 buku lagi.</p>
+    <textarea id="f1"></textarea>
+<p id="res_f1" style="color:red;font-weight:bold"></p>
+    <p>2. Toko memiliki 57.670 mainan, terjual 13.370.</p>
+    <textarea id="f2"></textarea>
+<p id="res_f2" style="color:red;font-weight:bold"></p>
+    <p>3. Ani memiliki 25.450 kelereng, ditambah 13.275.</p>
+    <textarea id="f3"></textarea>
+<p id="res_f3" style="color:red;font-weight:bold"></p>
+    <p>4. Penduduk desa 64.280 orang, pindah 12.145 orang.</p>
+    <textarea id="f4"></textarea>
+<p id="res_f4" style="color:red;font-weight:bold"></p>
+    <p>5. Pabrik menghasilkan 15.625 botol dan 28.350 botol.</p>
+    <textarea id="f5"></textarea>
+<p id="res_f5" style="color:red;font-weight:bold"></p>
+    <div style="text-align:center;margin-top:25px">
+      <button onclick="cekJawaband()">Cek Jawaban</button>
+    </div>
+
+    <p id="hasil" style="text-align:center;font-weight:bold"></p>
+
+  </div>
+
+<script>
+function cekJawaband() {
+
+  const hasil = document.getElementById("hasil");
+
+  const kunci = {
+    d1: "2176", d2: "1644", d3: "1434", d4: "16141", d5: "14524",
+    e1: "78516", e2: "45879", e3: "4173", e4: "42881", e5: "79183",
+    f1: "18023", f2: "44300", f3: "38725", f4: "52135", f5: "43975"
+  };
+
+  let semuaTerisi = true;
+  let skor = 0;
+
+  for (let id in kunci) {
+    const input = document.getElementById(id);
+    const feedback = document.getElementById("res_" + id);
+
+    if (input.value.trim() === "") {
+      semuaTerisi = false;
+      break;
+    }
+
+    // 🔹 NORMALISASI JAWABAN (hapus titik & spasi)
+    const jawabanSiswa = input.value.replace(/\./g, "").trim();
+
+    if (jawabanSiswa === kunci[id]) {
+      feedback.innerHTML = "✔ Benar";
+      feedback.style.color = "green";
+      skor++;
+    } else {
+      feedback.innerHTML = "❌ Salah, jawaban benar: " + kunci[id];
+      feedback.style.color = "red";
+    }
+  }
+
+  if (!semuaTerisi) {
+    hasil.innerHTML = "⚠️ Semua jawaban harus diisi!";
+    hasil.style.color = "red";
+    return;
+  }
+
+  hasil.innerHTML = `✅ Selesai! Skor: ${skor} / ${Object.keys(kunci).length}`;
+  hasil.style.color = "blue";
+}
+</script>
+
+
+
+
+  <!-- LKPD Geometri -->
+  <div id="lkpdGeometri" class="content">
+
+    <style>
+      /* ===== LATAR HALAMAN ===== */
+
+
+      /* ===== KERTAS A4 ===== */
+      #lkpdGeometri {
+        width: 210mm;
+        min-height: 297mm;
+        background: white;
+        margin: auto;
+        padding: 25mm;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ===== JUDUL ===== */
+      #lkpdGeometri h2 {
+        text-align: center;
+        margin-bottom: 5px;
+      }
+
+      #lkpdGeometri h3 {
+        margin-top: 25px;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
+      }
+
+      /* ===== TEKS ===== */
+      #lkpdGeometri p {
+        margin-top: 15px;
+        text-align: justify;
+      }
+
+      /* ===== TEXTAREA ===== */
+      #lkpdGeometri textarea {
+        width: 100%;
+        height: 55px;
+        border: 1px solid black;
+        padding: 6px;
+        font-family: "Times New Roman", serif;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      /* ===== TOMBOL ===== */
+      #lkpdGeometri button {
+        padding: 10px 30px;
+        font-size: 14px;
+        border: 1px solid black;
+        background: white;
+        cursor: pointer;
+      }
+
+      /* ===== HASIL ===== */
+      #hasil {
+        margin-top: 20px;
+      }
+
+      /* ===== MODE CETAK ===== */
+      @media print {
+        body {
+          background: white;
+          padding: 0;
+        }
+
+        #lkpdGeometri {
+          box-shadow: none;
+          margin: 0;
+        }
+      }
+    </style>
+
+
+
+    <h2>Lembar Kerja Peserta Didik (LKPD) Geometri</h2>
+
+    <h3>A. Soal Cerita Mencari Luas dan Keliling Belah Ketupat</h3>
+
+    <p>1. Luas belah ketupat 240 cm², diagonal panjang 30 cm.</p>
+    <textarea id="a1"></textarea>
+<p id="resd_a1" style="color:red;font-weight:bold"></p>
+    <p>2. Anak berlari mengelilingi belah ketupat sisi 20 m sebanyak 10 kali.</p>
+    <textarea id="a2"></textarea>
+<p id="resd_a2" style="color:red;font-weight:bold"></p>
+    <p>3. Luas 216 m² dan d1 = 18 m.</p>
+    <textarea id="a3"></textarea>
+<p id="resd_a3" style="color:red;font-weight:bold"></p>
+    <p>4. d1 = 12 cm dan d2 = 10 cm.</p>
+    <textarea id="a4"></textarea>
+<p id="resd_a4" style="color:red;font-weight:bold"></p>
+    <p>5. Sisi 20 m, 10 kali putaran.</p>
+    <textarea id="a5"></textarea>
+<p id="resd_a5" style="color:red;font-weight:bold"></p>
+    <h3>B. Mencari Luas Belah Ketupat</h3>
+
+    <p>1.Perhatikan gambar belah ketupat ABCD di atas! Dari gambar tersebut, tentukanlah:</p>
+    <img src="lkpd_geometri/2.jpg" alt="" srcset="">
+    <p>Tentukan luas dari belah ketupat ABCD tersebut. </p>
+    <br>
+    <textarea id="b1"></textarea>
+<p id="resd_b1" style="color:red;font-weight:bold"></p>
+    <p>2. Luas 60 cm², d1 = 10 cm</p>
+    <textarea id="b2"></textarea>
+<p id="resd_b2" style="color:red;font-weight:bold"></p>
+    <p>3. d1 = 8 cm, d2 = 10 cm</p>
+    <textarea id="b3"></textarea>
+<p id="resd_b3" style="color:red;font-weight:bold"></p>
+    <p>4. d1 = 24 cm, d2 = 18 cm</p>
+    <textarea id="b4"></textarea>
+<p id="resd_b4" style="color:red;font-weight:bold"></p>
+    <p>5. d1 = 18 cm, d2 = 9 cm</p>
+    <textarea id="b5"></textarea>
+<p id="resd_b5" style="color:red;font-weight:bold"></p>
+    <h3>C. Mencari Keliling</h3>
+
+    <p>1. Keliling 48 cm</p>
+    <textarea id="c1"></textarea>
+<p id="resd_c1" style="color:red;font-weight:bold"></p>
+    <p>2. Keliling 40 cm</p>
+    <textarea id="c2"></textarea>
+<p id="resd_c2" style="color:red;font-weight:bold"></p>
+    <p>3. Keliling 84 cm</p>
+    <textarea id="c3"></textarea>
+<p id="resd_c3" style="color:red;font-weight:bold"></p>
+    <p>4. Sisi 25 cm</p>
+    <textarea id="c4"></textarea>
+<p id="resd_c4" style="color:red;font-weight:bold"></p>
+    <p>5. Keliling 56 cm</p>
+    <textarea id="c5"></textarea>
+<p id="resd_c5" style="color:red;font-weight:bold"></p>
+    <div style="text-align:center;margin-top:25px">
+      <button onclick="cekJawabanddf()">Cek Jawaban</button>
+    </div>
+
+    <p id="hasil" style="text-align:center;font-weight:bold"></p>
+
+  </div>
+
+ <script>
+function cekJawabanddf() {
+
+  const kunci = {
+    a1: "16 cm",
+    a2: "800 m",
+    a3: "24 m",
+    a4: "60 cm²",
+    a5: "800 m",
+    b1: "216 cm²",
+    b2: "12 cm",
+    b3: "40 cm²",
+    b4: "216 cm²",
+    b5: "81 cm²",
+    c1: "12 cm",
+    c2: "10 cm",
+    c3: "21 cm",
+    c4: "100 cm",
+    c5: "14 cm"
+  };
+
+  let semuaTerisi = true;
+  let benar = 0;
+
+  for (let id in kunci) {
+    const input = document.getElementById(id);
+    const hasilSoal = document.getElementById("resd_" + id);
+
+    if (input.value.trim() === "") {
+      hasilSoal.innerHTML = "⚠️ Jawaban belum diisi";
+      semuaTerisi = false;
+    } 
+    else if (input.value.trim().toLowerCase() === kunci[id].toLowerCase()) {
+      hasilSoal.innerHTML = "✅ Benar";
+      hasilSoal.style.color = "green";
+      benar++;
+    } 
+    else {
+      hasilSoal.innerHTML = "❌ Salah, jawaban benar: " + kunci[id];
+      hasilSoal.style.color = "red";
+    }
+  }
+
+  const hasilAkhir = document.getElementById("hasil");
+
+  if (!semuaTerisi) {
+    hasilAkhir.innerHTML = "⚠️ Masih ada jawaban yang kosong!";
+    hasilAkhir.style.color = "red";
+  } else {
+    hasilAkhir.innerHTML = 
+      "Nilai: <b>" + benar + " / 15</b> soal benar";
+    hasilAkhir.style.color = "green";
+  }
+}
+</script>
+
+
+  </div>
+
+  
+
+
+  <script>
+    function showContent(id) {
+      const contents = document.querySelectorAll('.content');
+      contents.forEach(c => c.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+  <footer class="small">
+    <style>
+      footer.small {
+        text-align: center;
+        background: #f0f4f8;
+        color: #333;
+        font-size: 14px;
+        padding: 20px 10px;
+        border-top: 2px solid #e0e6ed;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      footer.small a {
+        display: inline-block;
+        margin-top: 8px;
+        background: #10b981;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s ease;
+        box-shadow: 0 3px 10px rgba(16, 185, 129, 0.3);
+      }
+
+      footer.small a:hover {
+        background: #0ea374;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
+        transform: translateY(-2px);
+      }
+    </style>
+
+    © 2025 Media Pembelajaran Interaktif — Kelas 4
+    <br>
+    <a href="https://wayground.com/join?gc=219083&source=liveDashboard" target="_blank">
+      🌐 Gabung ke WayGround
+    </a>
+  </footer>
 
 </body>
-
 
 </html>
