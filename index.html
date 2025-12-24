@@ -817,242 +817,162 @@
   <!-- LKPD Bilangan -->
   <div id="lkpdBilangan" class="content">
 
-    <style>
-      /* ===== LATAR HALAMAN ===== */
+<style>
+#lkpdBilangan{
+  width:210mm;
+  min-height:297mm;
+  background:#fff;
+  margin:auto;
+  padding:25mm;
+  box-shadow:0 0 10px rgba(0,0,0,.3);
+  font-family:"Times New Roman",serif;
+}
+#lkpdBilangan h2{text-align:center}
+#lkpdBilangan h3{margin-top:25px;border-bottom:1px solid #000}
+#lkpdBilangan textarea{
+  width:100%;height:55px;
+  border:1px solid #000;
+  padding:6px;
+  font-size:14px;
+}
+#lkpdBilangan button{
+  padding:10px 30px;
+  border:1px solid #000;
+  background:#fff;
+  cursor:pointer;
+}
+@media print{
+  #lkpdBilangan{box-shadow:none;margin:0}
+}
+</style>
 
+<h2>LKPD Bilangan</h2>
 
-      /* ===== KERTAS A4 ===== */
-      #lkpdBilangan {
-        width: 210mm;
-        min-height: 297mm;
-        background: white;
-        margin: auto;
-        padding: 25mm;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      }
+<h3>D. Pengurangan Bersusun</h3>
 
-      /* ===== JUDUL ===== */
-      #lkpdBilangan h2 {
-        text-align: center;
-        margin-bottom: 5px;
-      }
+<p>1.</p><pre> 3.421
+-1.245
+──────</pre>
+<textarea id="d1"></textarea><p id="res_d1"></p>
 
-      #lkpdBilangan h3 {
-        margin-top: 25px;
-        border-bottom: 1px solid black;
-        padding-bottom: 5px;
-      }
+<p>2.</p><pre> 2.878
+-1.234
+──────</pre>
+<textarea id="d2"></textarea><p id="res_d2"></p>
 
-      /* ===== TEKS ===== */
-      #lkpdBilangan p {
-        margin-top: 15px;
-        text-align: justify;
-      }
+<p>3.</p><pre> 2.775
+-1.341
+──────</pre>
+<textarea id="d3"></textarea><p id="res_d3"></p>
 
-      /* ===== TEXTAREA ===== */
-      #lkpdBilangan textarea {
-        width: 100%;
-        height: 55px;
-        border: 1px solid black;
-        padding: 6px;
-        font-family: "Times New Roman", serif;
-        font-size: 14px;
-        box-sizing: border-box;
-      }
+<p>4.</p><pre>38.754
+-22.613
+──────</pre>
+<textarea id="d4"></textarea><p id="res_d4"></p>
 
-      /* ===== TOMBOL ===== */
-      #lkpdBilangan button {
-        padding: 10px 30px;
-        font-size: 14px;
-        border: 1px solid black;
-        background: white;
-        cursor: pointer;
-      }
+<p>5.</p><pre>28.933
+-14.409
+──────</pre>
+<textarea id="d5"></textarea><p id="res_d5"></p>
 
-      /* ===== HASIL ===== */
-      #hasil {
-        margin-top: 20px;
-      }
+<h3>E. Penjumlahan Bersusun</h3>
 
-      /* ===== MODE CETAK ===== */
-      @media print {
-        body {
-          background: white;
-          padding: 0;
-        }
+<p>1.</p><pre>42.387
++36.129
+──────</pre>
+<textarea id="e1"></textarea><p id="res_e1"></p>
 
-        #lkpdBilangan {
-          box-shadow: none;
-          margin: 0;
-        }
-      }
-    </style>
-    <h2>Lembar Kerja Peserta Didik (LKPD) Bilangan</h2>
+<p>2.</p><pre>28.634
++17.245
+──────</pre>
+<textarea id="e2"></textarea><p id="res_e2"></p>
 
-    <h3>D. Pengurangan Bersusun ke Bawah</h3>
+<p>3.</p><pre>4.173
++_____
+──────</pre>
+<textarea id="e3"></textarea><p id="res_e3"></p>
 
-    <p>1.</p>
-    <pre>
-  3.421
-- 1.245
-────────
-</pre>
-    <textarea id="d1"></textarea>
-<p id="res_d1" style="color:red;font-weight:bold"></p>
+<p>4.</p><pre>27.634
++15.247
+──────</pre>
+<textarea id="e4"></textarea><p id="res_e4"></p>
 
-    <p>2.</p>
-    <pre>
-  2.878
-- 1.234
-────────
-</pre>
-    <textarea id="d2"></textarea>
-<p id="res_d2" style="color:red;font-weight:bold"></p>
+<p>5.</p><pre>46.725
++32.458
+──────</pre>
+<textarea id="e5"></textarea><p id="res_e5"></p>
 
+<h3>F. Soal Cerita</h3>
 
-    <p>3.</p>
-    <pre>
-  2.775
-- 1.341
-────────
-</pre>
-    <textarea id="d3"></textarea>
-<p id="res_d3" style="color:red;font-weight:bold"></p>
+<p>1.	Sebuah perpustakaan memiliki 12.345 buku. Mereka membeli lagi 5.678 buku. Berapa jumlah total buku di perpustakaan?</p>
+<textarea id="f1"></textarea><p id="res_f1"></p>
 
-    <p>4.</p>
-    <pre>
-  38.754
-- 22.613
-────────
-</pre>
-   <textarea id="d4"></textarea>
-<p id="res_d4" style="color:red;font-weight:bold"></p>
+<p>2.	Sebuah toko memiliki 57.670 mainan. Setelah beberapa hari, mainan yang terjual berjumlah 13.370. Berapa mainan yang tersisa?</p>
+<textarea id="f2"></textarea><p id="res_f2"></p>
 
-    <p>5.</p>
-    <pre>
-  28.933
-- 14.409
-────────
-</pre>
-    <textarea id="d5"></textarea>
-<p id="res_d5" style="color:red;font-weight:bold"></p>
+<p>3.	Ani memiliki 25.450 kelereng. Ayahnya membelikan lagi 13.275 kelereng. Berapa jumlah kelereng Ani sekarang?</p>
+<textarea id="f3"></textarea><p id="res_f3"></p>
 
-    <h3>E. Penjumlahan Bersusun ke Bawah</h3>
+<p>4.	Jumlah penduduk sebuah desa adalah 64.280 orang. Tahun ini, sebanyak 12.145 orang pindah. Berapa jumlah penduduk desa sekarang?</p>
+<textarea id="f4"></textarea><p id="res_f4"></p>
 
-    <p>1.</p>
-    <pre>
-  42.387
-+ 36.129
-────────
-</pre>
-    <textarea id="e1"></textarea>
-<p id="res_e1" style="color:red;font-weight:bold"></p>
+<p>5.	Sebuah pabrik menghasilkan 15.625 botol minuman pada hari Senin dan 28.350 pada hari Selasa. Berapa jumlah seluruh botol yang dihasilkan?</p>
+<textarea id="f5"></textarea><p id="res_f5"></p>
 
-    <p>2.</p>
-    <pre>
-  28.634
-+ 17.245
-────────
-</pre>
-    <textarea id="e2"></textarea>
-<p id="res_e2" style="color:red;font-weight:bold"></p>
+<div style="text-align:center;margin-top:25px">
+  <button onclick="cekJawaband()">Cek Jawaban</button>
+</div>
 
-    <p>3.</p>
-    <pre>
-  4.173
-+ ______
-────────
-</pre>
-    <textarea id="e3"></textarea>
-<p id="res_e3" style="color:red;font-weight:bold"></p>
-    <p>4.</p>
-    <pre>
-  27.634
-+ 15.247
-────────
-</pre>
-    <textarea id="e4"></textarea>
-<p id="res_e4" style="color:red;font-weight:bold"></p>
-    <p>5.</p>
-    <pre>
-  46.725
-+ 32.458
-────────
-</pre>
-    <textarea id="e5"></textarea>
-<p id="res_e5" style="color:red;font-weight:bold"></p>
-
-    <h3>F. Soal Cerita Penjumlahan dan Pengurangan</h3>
-
-    <p>1.	Sebuah perpustakaan memiliki 12.345 buku. Mereka membeli lagi 5.678 buku. Berapa jumlah total buku di perpustakaan?</p>
-    <textarea id="f1"></textarea>
-<p id="res_f1" style="color:red;font-weight:bold"></p>
-    <p>2.	Sebuah toko memiliki 57.670 mainan. Setelah beberapa hari, mainan yang terjual berjumlah 13.370. Berapa mainan yang tersisa?</p>
-    <textarea id="f2"></textarea>
-<p id="res_f2" style="color:red;font-weight:bold"></p>
-    <p>3.	Ani memiliki 25.450 kelereng. Ayahnya membelikan lagi 13.275 kelereng. Berapa jumlah kelereng Ani sekarang?</p>
-    <textarea id="f3"></textarea>
-<p id="res_f3" style="color:red;font-weight:bold"></p>
-    <p>4.	Jumlah penduduk sebuah desa adalah 64.280 orang. Tahun ini, sebanyak 12.145 orang pindah. Berapa jumlah penduduk desa sekarang?</p>
-    <textarea id="f4"></textarea>
-<p id="res_f4" style="color:red;font-weight:bold"></p>
-    <p>5.	Sebuah pabrik menghasilkan 15.625 botol minuman pada hari Senin dan 28.350 pada hari Selasa. Berapa jumlah seluruh botol yang dihasilkan?</p>
-    <textarea id="f5"></textarea>
-<p id="res_f5" style="color:red;font-weight:bold"></p>
-    <div style="text-align:center;margin-top:25px">
-      <button onclick="cekJawaband()">Cek Jawaban</button>
-    </div>
-
-    <p id="hasil" style="text-align:center;font-weight:bold"></p>
-
-  </div>
+<p id="hasil" style="text-align:center;font-weight:bold"></p>
+</div>
 
 <script>
-function cekJawaband() {
+function cekJawaband(){
 
-  const hasil = document.getElementById("hasil");
+const kunci={
+d1:"2176",d2:"1644",d3:"1434",d4:"16141",d5:"14524",
+e1:"78516",e2:"45879",e3:"4173",e4:"42881",e5:"79183",
+f1:"18023",f2:"44300",f3:"38725",f4:"52135",f5:"43975"
+};
 
-  const kunci = {
-    d1: "2176", d2: "1644", d3: "1434", d4: "16141", d5: "14524",
-    e1: "78516", e2: "45879", e3: "4173", e4: "42881", e5: "79183",
-    f1: "18023", f2: "44300", f3: "38725", f4: "52135", f5: "43975"
-  };
+let skor=0;
+let total=Object.keys(kunci).length;
+let lengkap=true;
 
-  let semuaTerisi = true;
-  let skor = 0;
+for(let id in kunci){
+  const input=document.getElementById(id);
+  const res=document.getElementById("res_"+id);
 
-  for (let id in kunci) {
-    const input = document.getElementById(id);
-    const feedback = document.getElementById("res_" + id);
-
-    if (input.value.trim() === "") {
-      semuaTerisi = false;
-      break;
-    }
-
-    // 🔹 NORMALISASI JAWABAN (hapus titik & spasi)
-    const jawabanSiswa = input.value.replace(/\./g, "").trim();
-
-    if (jawabanSiswa === kunci[id]) {
-      feedback.innerHTML = "✔ Benar";
-      feedback.style.color = "green";
-      skor++;
-    } else {
-      feedback.innerHTML = "❌ Salah, jawaban benar: " + kunci[id];
-      feedback.style.color = "red";
-    }
+  if(input.value.trim()===""){
+    res.innerHTML="⚠️ Belum diisi";
+    res.style.color="red";
+    lengkap=false;
+    continue;
   }
 
-  if (!semuaTerisi) {
-    hasil.innerHTML = "⚠️ Semua jawaban harus diisi!";
-    hasil.style.color = "red";
-    return;
-  }
+  const jawaban=input.value.replace(/\./g,"").trim();
 
-  hasil.innerHTML = `✅ Selesai! Skor: ${skor} / ${Object.keys(kunci).length}`;
-  hasil.style.color = "blue";
+  if(jawaban===kunci[id]){
+    res.innerHTML="✔ Benar";
+    res.style.color="green";
+    skor++;
+  }else{
+    res.innerHTML="❌ Salah (Jawaban: "+kunci[id]+")";
+    res.style.color="red";
+  }
+}
+
+const hasil=document.getElementById("hasil");
+if(!lengkap){
+  hasil.innerHTML="⚠️ Lengkapi semua jawaban terlebih dahulu!";
+  hasil.style.color="red";
+}else{
+  hasil.innerHTML=`✅ Skor Akhir: <b>${skor} / ${total}</b>`;
+  hasil.style.color="blue";
+}
 }
 </script>
+
 
 
 
@@ -1138,22 +1058,27 @@ function cekJawaband() {
     <h3>A. Soal Cerita Mencari Luas dan Keliling Belah Ketupat</h3>
 
     <p>1.Luas sebuah belah ketupat adalah 240cm.Jika diagonal panjangnya 30 cm,
-berapakah panjang diagonal pendeknya?
-</p>
+      berapakah panjang diagonal pendeknya?
+    </p>
     <textarea id="a1"></textarea>
-<p id="resd_a1" style="color:red;font-weight:bold"></p>
-    <p>2.Seorang anak berlari mengelilingi lapangan berbentuk belah ketupat yang memiliki ukuran sisi 20 m. Apabila anak tersebut mengelilingi lapangan sebanyak 10 kali, berapa jarak lintasan yang ditempuh oleh anak tersebut?</p>
+    <p id="resd_a1" style="color:red;font-weight:bold"></p>
+    <p>2.Seorang anak berlari mengelilingi lapangan berbentuk belah ketupat yang memiliki ukuran sisi 20 m. Apabila anak
+      tersebut mengelilingi lapangan sebanyak 10 kali, berapa jarak lintasan yang ditempuh oleh anak tersebut?</p>
     <textarea id="a2"></textarea>
-<p id="resd_a2" style="color:red;font-weight:bold"></p>
-    <p>3.Pak Arga memiliki sebidang lahan kosong yang akan dijadikan lahan parkir. Lahan tersebut didesain berbentuk belah ketupat. Pak Arga mencatat bahwa luas lahan parkir tersebut adalah 216 m. Diketahui juga bahwa panjang diagonal pertama (d1) adalah 18 m.Hitunglah panjang diagonal kedua (d2) lahan parkir tersebut.</p>
+    <p id="resd_a2" style="color:red;font-weight:bold"></p>
+    <p>3.Pak Arga memiliki sebidang lahan kosong yang akan dijadikan lahan parkir. Lahan tersebut didesain berbentuk
+      belah ketupat. Pak Arga mencatat bahwa luas lahan parkir tersebut adalah 216 m. Diketahui juga bahwa panjang
+      diagonal pertama (d1) adalah 18 m.Hitunglah panjang diagonal kedua (d2) lahan parkir tersebut.</p>
     <textarea id="a3"></textarea>
-<p id="resd_a3" style="color:red;font-weight:bold"></p>
-    <p>4.Siti membuat biasa  berbentuk belah ketupat dari kertas warnah. Panjang diagonal pertama hiasan tersebut adalah 12 cm dan diagonal ke dua 10 cm. Berapakah luas hiasan belah ketupat milik siti. </p>
+    <p id="resd_a3" style="color:red;font-weight:bold"></p>
+    <p>4.Siti membuat biasa berbentuk belah ketupat dari kertas warnah. Panjang diagonal pertama hiasan tersebut adalah
+      12 cm dan diagonal ke dua 10 cm. Berapakah luas hiasan belah ketupat milik siti. </p>
     <textarea id="a4"></textarea>
-<p id="resd_a4" style="color:red;font-weight:bold"></p>
-    <p>5.	Seorang anak berlari mengelilingi lapangan berbentuk belah ketupat yang memiliki ukuran sisi 20 m. Apabila anak tersebut mengelilingi lapangan sebanyak 10 kali, berapa jarak lintasan yang ditempuh oleh anak tersebut?</p>
+    <p id="resd_a4" style="color:red;font-weight:bold"></p>
+    <p>5. Seorang anak berlari mengelilingi lapangan berbentuk belah ketupat yang memiliki ukuran sisi 20 m. Apabila
+      anak tersebut mengelilingi lapangan sebanyak 10 kali, berapa jarak lintasan yang ditempuh oleh anak tersebut?</p>
     <textarea id="a5"></textarea>
-<p id="resd_a5" style="color:red;font-weight:bold"></p>
+    <p id="resd_a5" style="color:red;font-weight:bold"></p>
     <h3>B. Mencari Luas Belah Ketupat</h3>
 
     <p>1.Perhatikan gambar belah ketupat ABCD di atas! Dari gambar tersebut, tentukanlah:</p>
@@ -1161,36 +1086,39 @@ berapakah panjang diagonal pendeknya?
     <p>Tentukan luas dari belah ketupat ABCD tersebut. </p>
     <br>
     <textarea id="b1"></textarea>
-<p id="resd_b1" style="color:red;font-weight:bold"></p>
-    <p>2.	Luas sebuah belah ketupat adalah 60 cm². Jika salah satu diagonalnya 10 cm, berapakah panjang diagonal lainnya?</p>
+    <p id="resd_b1" style="color:red;font-weight:bold"></p>
+    <p>2. Luas sebuah belah ketupat adalah 60 cm². Jika salah satu diagonalnya 10 cm, berapakah panjang diagonal
+      lainnya?</p>
     <textarea id="b2"></textarea>
-<p id="resd_b2" style="color:red;font-weight:bold"></p>
-    <p>3.	Sebuah belah ketupat memiliki diagonal 8 cm dan 10 cm. Hitunglah luas belah ketupat tersebut.</p>
+    <p id="resd_b2" style="color:red;font-weight:bold"></p>
+    <p>3. Sebuah belah ketupat memiliki diagonal 8 cm dan 10 cm. Hitunglah luas belah ketupat tersebut.</p>
     <textarea id="b3"></textarea>
-<p id="resd_b3" style="color:red;font-weight:bold"></p>
-    <p>4.	Sebuah belah ketupat memiliki keliling 68 cm dan diagonal 24 cm dan 18 cm. Hitunglah luas belah ketupat tersebut.</p>
+    <p id="resd_b3" style="color:red;font-weight:bold"></p>
+    <p>4. Sebuah belah ketupat memiliki keliling 68 cm dan diagonal 24 cm dan 18 cm. Hitunglah luas belah ketupat
+      tersebut.</p>
     <textarea id="b4"></textarea>
-<p id="resd_b4" style="color:red;font-weight:bold"></p>
-    <p>5.	Sebuah belah ketupat memiliki d1 18 cm dan d2 adalah 9 cm. Tentukan luas belah ketupat tesebut. </p>
+    <p id="resd_b4" style="color:red;font-weight:bold"></p>
+    <p>5. Sebuah belah ketupat memiliki d1 18 cm dan d2 adalah 9 cm. Tentukan luas belah ketupat tesebut. </p>
     <textarea id="b5"></textarea>
-<p id="resd_b5" style="color:red;font-weight:bold"></p>
+    <p id="resd_b5" style="color:red;font-weight:bold"></p>
     <h3>C. Mencari Keliling</h3>
 
-    <p>1.	Keliling sebuah belah ketupat adalah 48 cm. Berapakah panjang sisinya?</p>
+    <p>1. Keliling sebuah belah ketupat adalah 48 cm. Berapakah panjang sisinya?</p>
     <textarea id="c1"></textarea>
-<p id="resd_c1" style="color:red;font-weight:bold"></p>
-    <p>2.	Sebuah belah ketupat memiliki panjang diagonal 16 cm dan 12 cm. Jika kelilingnya 40 cm, berapakah panjang sisinya?</p>
+    <p id="resd_c1" style="color:red;font-weight:bold"></p>
+    <p>2. Sebuah belah ketupat memiliki panjang diagonal 16 cm dan 12 cm. Jika kelilingnya 40 cm, berapakah panjang
+      sisinya?</p>
     <textarea id="c2"></textarea>
-<p id="resd_c2" style="color:red;font-weight:bold"></p>
-    <p>3.	Keliling sebuah belah ketupat adalah 84 cm. Hitunglah panjang sisinya.</p>
+    <p id="resd_c2" style="color:red;font-weight:bold"></p>
+    <p>3. Keliling sebuah belah ketupat adalah 84 cm. Hitunglah panjang sisinya.</p>
     <textarea id="c3"></textarea>
-<p id="resd_c3" style="color:red;font-weight:bold"></p>
-    <p>4.	Sebuah belah ketupat PQRS dengan panjang sisi PQ 25 cm, hitunglah keliling belah ketupat tersebut.</p>
+    <p id="resd_c3" style="color:red;font-weight:bold"></p>
+    <p>4. Sebuah belah ketupat PQRS dengan panjang sisi PQ 25 cm, hitunglah keliling belah ketupat tersebut.</p>
     <textarea id="c4"></textarea>
-<p id="resd_c4" style="color:red;font-weight:bold"></p>
-    <p>5.	Keliling sebuah belah ketupat adalah 56 cm. Berapakah panjang sisi belah ketupat tersebut?</p>
+    <p id="resd_c4" style="color:red;font-weight:bold"></p>
+    <p>5. Keliling sebuah belah ketupat adalah 56 cm. Berapakah panjang sisi belah ketupat tersebut?</p>
     <textarea id="c5"></textarea>
-<p id="resd_c5" style="color:red;font-weight:bold"></p>
+    <p id="resd_c5" style="color:red;font-weight:bold"></p>
     <div style="text-align:center;margin-top:25px">
       <button onclick="cekJawabanddf()">Cek Jawaban</button>
     </div>
@@ -1199,66 +1127,66 @@ berapakah panjang diagonal pendeknya?
 
   </div>
 
- <script>
-function cekJawabanddf() {
+  <script>
+    function cekJawabanddf() {
 
-  const kunci = {
-    a1: "16 cm",
-    a2: "800 m",
-    a3: "24 m",
-    a4: "60 cm²",
-    a5: "800 m",
-    b1: "216 cm²",
-    b2: "12 cm",
-    b3: "40 cm²",
-    b4: "216 cm²",
-    b5: "81 cm²",
-    c1: "12 cm",
-    c2: "10 cm",
-    c3: "21 cm",
-    c4: "100 cm",
-    c5: "14 cm"
-  };
+      const kunci = {
+        a1: "16 cm",
+        a2: "800 m",
+        a3: "24 m",
+        a4: "60 cm²",
+        a5: "800 m",
+        b1: "216 cm²",
+        b2: "12 cm",
+        b3: "40 cm²",
+        b4: "216 cm²",
+        b5: "81 cm²",
+        c1: "12 cm",
+        c2: "10 cm",
+        c3: "21 cm",
+        c4: "100 cm",
+        c5: "14 cm"
+      };
 
-  let semuaTerisi = true;
-  let benar = 0;
+      let semuaTerisi = true;
+      let benar = 0;
 
-  for (let id in kunci) {
-    const input = document.getElementById(id);
-    const hasilSoal = document.getElementById("resd_" + id);
+      for (let id in kunci) {
+        const input = document.getElementById(id);
+        const hasilSoal = document.getElementById("resd_" + id);
 
-    if (input.value.trim() === "") {
-      hasilSoal.innerHTML = "⚠️ Jawaban belum diisi";
-      semuaTerisi = false;
-    } 
-    else if (input.value.trim().toLowerCase() === kunci[id].toLowerCase()) {
-      hasilSoal.innerHTML = "✅ Benar";
-      hasilSoal.style.color = "green";
-      benar++;
-    } 
-    else {
-      hasilSoal.innerHTML = "❌ Salah, jawaban benar: " + kunci[id];
-      hasilSoal.style.color = "red";
+        if (input.value.trim() === "") {
+          hasilSoal.innerHTML = "⚠️ Jawaban belum diisi";
+          semuaTerisi = false;
+        }
+        else if (input.value.trim().toLowerCase() === kunci[id].toLowerCase()) {
+          hasilSoal.innerHTML = "✅ Benar";
+          hasilSoal.style.color = "green";
+          benar++;
+        }
+        else {
+          hasilSoal.innerHTML = "❌ Salah, jawaban benar: " + kunci[id];
+          hasilSoal.style.color = "red";
+        }
+      }
+
+      const hasilAkhir = document.getElementById("hasil");
+
+      if (!semuaTerisi) {
+        hasilAkhir.innerHTML = "⚠️ Masih ada jawaban yang kosong!";
+        hasilAkhir.style.color = "red";
+      } else {
+        hasilAkhir.innerHTML =
+          "Nilai: <b>" + benar + " / 15</b> soal benar";
+        hasilAkhir.style.color = "green";
+      }
     }
-  }
-
-  const hasilAkhir = document.getElementById("hasil");
-
-  if (!semuaTerisi) {
-    hasilAkhir.innerHTML = "⚠️ Masih ada jawaban yang kosong!";
-    hasilAkhir.style.color = "red";
-  } else {
-    hasilAkhir.innerHTML = 
-      "Nilai: <b>" + benar + " / 15</b> soal benar";
-    hasilAkhir.style.color = "green";
-  }
-}
-</script>
+  </script>
 
 
   </div>
 
-  
+
 
 
   <script>
